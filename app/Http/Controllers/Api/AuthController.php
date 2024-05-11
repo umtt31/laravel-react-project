@@ -37,12 +37,12 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return response([
                 'message' => 'Provided email address or password is incorrect!'
-            ]);
+            ], 422);
         };
 
         /** @var User $user */
         $user = Auth::user();
-        $token = $user->createToken()->plainTextToken;
+        $token = $user->createToken('main')->plainTextToken;
 
         return response([
             'user' => $user,
