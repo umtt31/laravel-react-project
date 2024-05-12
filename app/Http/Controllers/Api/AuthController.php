@@ -49,7 +49,7 @@ class AuthController extends Controller
             'token' => $token
         ]);
     }
-    public function loginout(Request $request)
+    public function logout(Request $request)
     {
         /** @var User $user */
         $user = $request->user();
